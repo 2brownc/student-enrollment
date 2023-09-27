@@ -2,6 +2,7 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 import ActionProvider from './ActionProvider'
 
 import GotIt from '../components/GotIt'
+import SlotPicker from '../components/SlotPicker'
 
 const config = {
   initialMessages: [createChatBotMessage(
@@ -16,6 +17,10 @@ const config = {
       widgetName: 'gotIt',
       widgetFunc: (props) => <GotIt {...props} />,
     },
+    {
+      widgetName: 'slotPicker',
+      widgetFunc: (props) => <SlotPicker {...props} />
+    }
   ],
 };
 

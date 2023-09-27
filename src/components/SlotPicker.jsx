@@ -9,10 +9,18 @@ import {
 	format,
 	isSameHour,
 } from 'date-fns'
-import { getDefaultMiddleware } from '@reduxjs/toolkit'
+
+import { useDispatch } from 'react-redux'
+import {
+	setSlot,
+	setCurrentInput,
+} from '../store/chatSlice'
+
 import { clsx } from 'clsx';
 
 function SlotPicker({ actions }) {
+	const dispatch = useDispatch()
+
 	// use present date as the pivot
 	const currentDate = new Date()
 
@@ -45,6 +53,11 @@ function SlotPicker({ actions }) {
 				hide the picker`
 			*/
 			setShowPicker(false)
+
+			// set the type of input for redux store
+			dispatch(setCurrentInput("slot"))
+			// send selected date slot to the store
+			dispatch(setSlot(selectedHourSlot))
 
 			//print summary of selected datetime slot
 			const summaryText = format(selectedHourSlot, 'dd MMM, E hh:00 aaa')

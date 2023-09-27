@@ -1,11 +1,21 @@
 import React from 'react';
 import { createClientMessage } from 'react-chatbot-kit';
 
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  setName,
+  setAge,
+  setCurrentInput,
+} from '../store/chatSlice'
+
+
 const ActionProvider = ({
   createChatBotMessage,
   setState,
   children
 }) => {
+
+  const dispatch = useDispatch()
 
   // helper function
   const updateBot = (msg) => {
@@ -32,20 +42,29 @@ const ActionProvider = ({
     updateBot(askSlotMessage)
   }
 
-  const printDateSlotSummary = (msg) => {
-    const userMessage = createClientMessage(msg)
 
-    updateBot(userMessage)
+
+  const askAge = () => {
+    const botMessage = createChatBotMessage('Enter your age:')
+    updateBot(botMessage)
   }
 
   const askName = () => {
     const botMessage = createChatBotMessage('Enter your name:')
-    updateBot(askSlotMessage)
+    updateBot(botMessage)
+    dispatch(setCurrentInput("name"))
   }
 
-  const askAge = () => {
-    const botMessage = createChatBotMessage('Enter your name:')
-    updateBot(askSlotMessage)
+  const printDateSlotSummary = (msg) => {
+    const userMessage = createClientMessage(msg)
+
+    updateBot(userMessage)
+
+    /*
+      after printing the date slot
+      info ask for the name
+    */
+    askName()
   }
 
   return <div>
@@ -55,8 +74,8 @@ const ActionProvider = ({
           handleGotIt,
           askSlotMessage,
           printDateSlotSummary,
-          askName,
           askAge,
+          askName,
         },
       })
     })}

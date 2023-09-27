@@ -4,16 +4,12 @@ export const chatSlice = createSlice({
   name: 'chat',
   initialState: {
     slot: null,
-		time: null,
-		name: null,
-		age: null,
-		currentInput: null
+    name: null,
+    age: null,
+    currentInput: null
   },
   reducers: {
     setSlot: (state, action) => {
-      state.slot = action.payload
-    },
-    setTime: (state, action) => {
       state.slot = action.payload
     },
     setName: (state, action) => {
@@ -30,12 +26,13 @@ export const chatSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-	setSlot,
-	setTime,
-	setName,
-	setAge,
-	setCurrentInput,
+  setSlot,
+  setName,
+  setAge,
+  setCurrentInput,
 } = chatSlice.actions
+
+export const currentInput = (state) => state.chat.currentInput
 
 export default chatSlice.reducer
 

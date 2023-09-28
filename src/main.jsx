@@ -9,7 +9,19 @@ import { Provider } from 'react-redux'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <div>
+        <div className='
+        text-3xl text-center
+        m-10
+      '>
+          Student Info System
+        </div>
+        <div className="
+        flex flex-col items-center h-screen    
+      ">
+          <App />
+        </div>
+      </div>
     </Provider>
   </React.StrictMode>,
 )

@@ -20,7 +20,11 @@ function GotIt({ actions }) {
     Got It!
   </button>
 
-  return show && <GotItButton />;
+  return show && <div className="
+      flex justify-center w-full
+    ">
+    <GotItButton />
+  </div>
 }
 
 export default GotIt

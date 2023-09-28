@@ -57,7 +57,19 @@ function SlotPicker({ actions }) {
 			// set the type of input for redux store
 			dispatch(setCurrentInput("slot"))
 			// send selected date slot to the store
-			dispatch(setSlot(selectedHourSlot))
+			const dateText = format(selectedHourSlot, 'dd')
+			const monthText = format(selectedHourSlot, 'MMM')
+			const dayText = format(selectedHourSlot, 'E')
+			const hourText = format(selectedHourSlot, 'h')
+			const meridianText = format(selectedHourSlot, 'aaa')
+			const slot = {
+				date: dateText,
+				month: monthText,
+				day: dayText,
+				hour: hourText,
+				meridian: meridianText
+			}
+			dispatch(setSlot(slot))
 
 			//print summary of selected datetime slot
 			const summaryText = format(selectedHourSlot, 'dd MMM, E hh:00 aaa')

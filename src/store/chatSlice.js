@@ -33,6 +33,9 @@ export const {
 } = chatSlice.actions
 
 export const currentInput = (state) => state.chat.currentInput
+export const name = (state) => state.chat.name
+export const age = (state) => state.chat.age
+export const slot = (state) => state.chat.slot
 
 export default chatSlice.reducer
 

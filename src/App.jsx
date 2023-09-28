@@ -1,20 +1,38 @@
 import { useState } from 'react'
-import Chatbot from 'react-chatbot-kit'
-import config from './bot/config'
-import MessageParser from './bot/MessageParser'
-import ActionProvider from './bot/ActionProvider'
+import Home from './routes/Home'
+import ChatBot from './routes/ChatBot'
+import ErrorPage from './routes/ErrorPage'
+import Summary from './routes/Summary'
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom"
 
 import './App.css'
-import 'react-chatbot-kit/build/main.css'
 
 function App() {
-  return (
-    <Chatbot
-      config={config}
-      messageParser={MessageParser}
-      actionProvider={ActionProvider}
-    />
-  )
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "register",
+      element: <ChatBot />,
+    },
+    {
+      path: "summary",
+      element: <Summary />,
+    },
+  ])
+
+  return <RouterProvider router={router} />
 }
+
+/*
+
+*/
 
 export default App

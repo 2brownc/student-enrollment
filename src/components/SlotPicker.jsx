@@ -132,7 +132,6 @@ function SlotPicker({ actions }) {
 				m-1 h-18 w-12
 				rounded
 				active:bg-violet-600 hover:bg-violet-400
-				border border-solid border-black
 				${clsx({
 				"bg-violet-500": selected,
 				"bg-violet-200": !selected,
@@ -142,7 +141,7 @@ function SlotPicker({ actions }) {
 		`}>
 			<div
 				className="
-					p-1 w-full
+					p-1 w-full w-full
 					flex flex-col items-center
 					select-none
 				"
@@ -188,7 +187,6 @@ function SlotPicker({ actions }) {
 			className={`
 				w-fit h-fit m-1 p-2
 				rounded
-				border border-solid border-black
 				active:bg-purple-600 hover:bg-purple-400
 				${clsx({
 				"bg-purple-500": selected,
@@ -239,7 +237,7 @@ function SlotPicker({ actions }) {
 				m-1 w-5 h-18
 				rounded
 				active:bg-purple-600 hover:bg-purple-400 bg-purple-500
-				border border-solid border-black
+				text-white
 			">
 				{symbol}
 			</button>
@@ -265,37 +263,37 @@ function SlotPicker({ actions }) {
 				</div>
 				<Scroller symbol={">"} action={inc} />
 			</div>
-			{selectedDateSlot !== null && <div className="timeSlotsPicker">
-				<div className="">
+			{selectedDateSlot !== null && <div className="">
+				<div className="flex flex-col items-center">
 					<div className="">
 						Morning
 					</div>
 					<div className="
-						timeSlots flex flex-wrap
+						timeSlots flex flex-wrap justify-center
 					">
 						{MORNING_HOURS.map((hour) => (
 							<TimeOption hour={hour} />
 						))}
 					</div>
 				</div>
-				<div className="">
+				<div className="flex flex-col items-center">
 					<div className="">
 						Afternoon
 					</div>
 					<div className="
-						timeSlots flex flex-wrap
+						timeSlots flex flex-wrap justify-center
 					">
 						{AFTERNOON_HOURS.map((hour) => (
 							<TimeOption hour={hour} />
 						))}
 					</div>
 				</div>
-				<div className="">
+				<div className="flex flex-col items-center">
 					<div className="">
 						Evening
 					</div>
 					<div className="
-						timeSlots flex flex-wrap
+						timeSlots flex flex-wrap justify-center
 					">
 						{EVENING_HOURS.map((hour) => (
 							<TimeOption hour={hour} />

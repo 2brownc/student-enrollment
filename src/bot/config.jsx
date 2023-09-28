@@ -3,6 +3,7 @@ import ActionProvider from './ActionProvider'
 
 import GotIt from '../components/GotIt'
 import SlotPicker from '../components/SlotPicker'
+import Countdown from '../components/Countdown'
 
 const config = {
   initialMessages: [createChatBotMessage(
@@ -20,6 +21,10 @@ const config = {
     {
       widgetName: 'slotPicker',
       widgetFunc: (props) => <SlotPicker {...props} />
+    },
+    {
+      widgetName: 'countdown',
+      widgetFunc: (props) => <Countdown />
     }
   ],
 };

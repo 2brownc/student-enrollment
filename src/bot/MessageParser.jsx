@@ -21,6 +21,7 @@ const MessageParser = ({ children, actions }) => {
         break
       case "age":
         dispatch(setAge(message))
+        actions.countdown()
         break
       case "slot":
         dispatch(setSlot(message))

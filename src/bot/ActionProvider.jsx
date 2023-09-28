@@ -26,6 +26,17 @@ const ActionProvider = ({
 
   }
 
+  const countdown = () => {
+    const botMessage = createChatBotMessage(
+      "Thank you!",
+      {
+        widget: 'countdown'
+      }
+    )
+
+    updateBot(botMessage)
+  }
+
   const handleGotIt = () => {
     const userMessage = createClientMessage('Got it!')
 
@@ -76,6 +87,7 @@ const ActionProvider = ({
           printDateSlotSummary,
           askAge,
           askName,
+          countdown
         },
       })
     })}

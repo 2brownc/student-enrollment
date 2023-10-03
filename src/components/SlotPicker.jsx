@@ -234,7 +234,7 @@ function SlotPicker({ actions }) {
 				onClick={action}
 				className="
 				flex-item
-				m-1 w-5 h-18
+				m-1 w-4 h-18
 				rounded
 				active:bg-purple-600 hover:bg-purple-400 bg-purple-500
 				text-white
@@ -247,8 +247,9 @@ function SlotPicker({ actions }) {
 
 		return <div className="
 				border border-solid border-black
-				p-2
+				p-1
 				duration-150
+				select-none
 			">
 			<div className="
 				flex flex-row justify-between

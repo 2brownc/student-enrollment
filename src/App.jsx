@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Home from './routes/Home'
 import ChatBot from './routes/ChatBot'
 import ErrorPage from './routes/ErrorPage'
